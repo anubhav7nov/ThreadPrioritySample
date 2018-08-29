@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        IExperiment experiment = new ExperimentFactory().getExperiment(ExperimentFactory.ExperimentType.THREAD_EXPERIMENT);
+        IExperiment experiment = new ExperimentFactory().getExperiment(ExperimentFactory.ExperimentType.RX_PRIORITY);
         experiment.runExperiment();
     }
 

@@ -16,6 +16,9 @@ public class RxPriorityExperiment implements IExperiment {
     @Override
     public void runExperiment() {
         System.setProperty("rx2.computation-priority", "" + (Thread.NORM_PRIORITY - 1));
+        System.setProperty("rx2.io-priority", "" + (Thread.MIN_PRIORITY));
+        System.setProperty("rx2.single-priority", "" + (Thread.NORM_PRIORITY - 1));
+
         Completable.create(new CompletableOnSubscribe() {
             @Override
             public void subscribe(CompletableEmitter emitter) {
@@ -25,5 +28,25 @@ public class RxPriorityExperiment implements IExperiment {
                 Log.d(TAG, "thread name : " + currentThread.getName() + " thread priority : " + Process.getThreadPriority(Process.myTid()));
             }
         }).subscribeOn(Schedulers.computation()).subscribe();
+
+        Completable.create(new CompletableOnSubscribe() {
+            @Override
+            public void subscribe(CompletableEmitter emitter) {
+                Thread currentThread = Thread.currentThread();
+                Log.d(TAG, "thread name : main priority : " + Process.getThreadPriority(1));
+
+                Log.d(TAG, "thread name : " + currentThread.getName() + " thread priority : " + Process.getThreadPriority(Process.myTid()));
+            }
+        }).subscribeOn(Schedulers.io()).subscribe();
+
+        Completable.create(new CompletableOnSubscribe() {
+            @Override
+            public void subscribe(CompletableEmitter emitter) {
+                Thread currentThread = Thread.currentThread();
+                Log.d(TAG, "thread name : main priority : " + Process.getThreadPriority(1));
+
+                Log.d(TAG, "thread name : " + currentThread.getName() + " thread priority : " + Process.getThreadPriority(Process.myTid()));
+            }
+        }).subscribeOn(Schedulers.single()).subscribe();
     }
 }

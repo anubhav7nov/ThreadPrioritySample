@@ -5,13 +5,6 @@ import threadpriority.com.threadprioritysample.experiment.impl.HandlerThreadPrio
 import threadpriority.com.threadprioritysample.experiment.impl.IntentServiceExperiment;
 import threadpriority.com.threadprioritysample.experiment.impl.ThreadExperiment;
 import threadpriority.com.threadprioritysample.experiment.impl.ThreadPoolPriorityExperiment;
-import threadpriority.com.threadprioritysample.experiment.impl.old.CallingThreadPriority;
-import threadpriority.com.threadprioritysample.experiment.impl.old.ThreadClassProrityBackground;
-import threadpriority.com.threadprioritysample.experiment.impl.old.ThreadClassProrityBackgroundMoreFavorable;
-import threadpriority.com.threadprioritysample.experiment.impl.old.ThreadClassProrityMax;
-import threadpriority.com.threadprioritysample.experiment.impl.old.ThreadClassProrityMin;
-import threadpriority.com.threadprioritysample.experiment.impl.old.ThreadFactoryRunnablePriorityBackground;
-import threadpriority.com.threadprioritysample.experiment.impl.old.ThreadFactoryRunnablePriorityBackgroundMoreFavourable;
 
 public class ExperimentFactory {
 
